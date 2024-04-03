@@ -14,6 +14,7 @@ count = 0;
 socketIo.on('connection', (socket) => {
   count++;
   socket.emit('count', count);
+  socket.broadcast.emit('count', count);
   console.log({ count });
   console.log('New client connected' + socket.id);
 
@@ -27,7 +28,7 @@ socketIo.on('connection', (socket) => {
     console.log({ count });
 
     socket.emit('count', count);
-    socket.broadcast.emit('count', { count });
+    socket.broadcast.emit('count', count);
     console.log('Client disconnected');
   });
 });

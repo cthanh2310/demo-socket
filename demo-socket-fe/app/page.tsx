@@ -31,6 +31,7 @@ export default function Home() {
 
     socket.on('connect', onConnect);
     socket.on('count', (count: number) => {
+      console.log('count', count);
       setViews(count);
     });
     socket.on('disconnect', onDisconnect);
